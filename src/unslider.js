@@ -59,11 +59,12 @@
 			_.i = 0;
 
 			//  Set the main element
-			el.css({width: _.max[0], height: li.first().outerHeight(), overflow: 'hidden'});
+			el.css({width: (_.max[0]) + 'px', height: 'auto', overflow: 'hidden'});
 
 			//  Set the relative widths
-			ul.css({position: 'relative', left: 0, width: (len * 100) + '%'});
-			li.css({'float': 'left', width: (_.max[0]) + 'px'});
+			//ul.css({position: 'relative', left: 0, width: (len * 100) + '%'});
+			ul.css({position: 'relative', left: 0, width: (_.max[0] * len) + 'px'});
+			li.css({'float': 'left', width: (_.max[0]) + 'px', height: 'auto'});
 
 			//  Autoslide
 			o.autoplay && setTimeout(function() {
@@ -105,12 +106,13 @@
 					_.r && clearTimeout(_.r);
 
 					_.r = setTimeout(function() {
-						var styl = {height: li.eq(_.i).outerHeight()},
-							width = el.outerWidth();
+						// Set the main element
+						var width = el.parent().width();
+						el.css({width: width + 'px', height: 'auto', overflow: 'hidden'});
 
-						ul.css(styl);
-						styl['width'] = Math.min(Math.round((width / el.parent().width()) * 100), 100) + '%';
-						el.css(styl);
+						//  Set the relative widths
+						ul.css({position: 'relative', left: 0, width: (width * len) + 'px'});
+						li.css({'float': 'left', width: width + 'px', height: 'auto'});
 					}, 50);
 				}).resize();
 			};
