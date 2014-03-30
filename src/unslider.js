@@ -71,7 +71,7 @@
 					_.play();
 
 					if (o.pause) {
-						el.on('mouseover mouseout', function(e) {
+						el.bind('mouseover mouseout', function(e) {
 							_.stop();
 							e.type == 'mouseout' && _.play();
 						});
@@ -117,7 +117,7 @@
 
 			//  Swipe support
 			if ($.event.special['swipe'] || $.Event('swipe')) {
-				el.on('swipeleft swiperight swipeLeft swipeRight', function(e) {
+				el.bind('swipeleft swiperight swipeLeft swipeRight', function(e) {
 					e.type.toLowerCase() == 'swipeleft' ? _.next() : _.prev();
 				});
 			};
