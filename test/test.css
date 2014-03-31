@@ -138,9 +138,6 @@ h1, h2, h3, h4, b {
 			width: 20px;
 			height: 20px;
 			line-height: 20px;
-			*width: 16px;
-			*height: 16px;
-			*line-height: 16px;
 			margin: 0 4px;
 			text-align: center;
 
