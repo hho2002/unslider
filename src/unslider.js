@@ -38,17 +38,7 @@
 
 			_.el = el;
 			_.ul = el.find(_.o.items);
-			_.max = [el.outerWidth() | 0, el.outerHeight() | 0];
-			_.li = _.ul.find(_.o.item).each(function(index) {
-				var me = $(this),
-					width = me.outerWidth(),
-					height = me.outerHeight();
-
-				//  Set the max values
-				if (width > _.max[0]) _.max[0] = width;
-				if (height > _.max[1]) _.max[1] = height;
-			});
-
+			_.li = _.ul.find(_.o.item);
 
 			//  Cached vars
 			var o = _.o,
@@ -60,15 +50,15 @@
 			_.i = 0;
 
 			//  Set the main element
-			el.css({width: (_.max[0]) + 'px', height: 'auto', overflow: 'hidden'});
+			var width = li.first().outerWidth();
+			var height = li.first().outerHeight();
+			el.css({width: width + 'px', height: height + 'px', overflow: 'hidden'});
 
 			//  Set the relative widths
-			//ul.css({position: 'relative', left: 0, width: (len * 100) + '%'});
-			ul.css({position: 'relative', left: 0, width: (_.max[0] * len) + 'px'});
-			li.css({'float': 'left', width: (_.max[0]) + 'px', height: 'auto'});
+			ul.css({position: 'relative', left: 0, width: (width * len) + 'px'});
+			li.css({'float': 'left', width: width + 'px', height: height + 'px'});
 
 			if (o.fade) {
-				//li.css({'position': 'absolute', 'display': 'none'});
 				li.css({'display': 'none'});
 				ul.find("li").eq(0).css({'display': 'block'});
 			}
