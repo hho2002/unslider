@@ -126,7 +126,7 @@ h1, h2, h3, h4, b {
 		position: absolute;
 		left: 0;
 		right: 0;
-		bottom: 20px;
+		bottom: 10px;
 		width: 100%;
 		text-align: left;
 	}
@@ -144,8 +144,8 @@ h1, h2, h3, h4, b {
 			margin: 0 4px;
 			text-align: center;
 
-			text-indent: -999em;
-			*text-indent: 0;
+			/*text-indent: -999em;*/
+			text-indent: 0;
 
 			border: 2px solid #fff;
 			border-radius: 6px;
@@ -158,13 +158,13 @@ h1, h2, h3, h4, b {
 			transition: background .5s, opacity .5s;
 		}
 			.banner .dots li.active {
-				background: #fff;
+				background: #888;
 				opacity: 1;
 			}
 
 	.banner .arrows {
 		position: absolute;
-		bottom: 20px;
+		bottom: 10px;
 		right: 20px;
 		color: #fff;
 	}
