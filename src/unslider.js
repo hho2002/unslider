@@ -115,7 +115,7 @@
 			};
 
 			//  Swipe support
-			if ($.event.special['swipe'] || $.Event('swipe')) {
+			if ($.event.special['swipe']) {
 				el.bind('swipeleft swiperight swipeLeft swipeRight', function(e) {
 					e.type.toLowerCase() == 'swipeleft' ? _.next() : _.prev();
 				});
@@ -173,6 +173,7 @@
 
 		//  Autoplay functionality
 		_.play = function() {
+			if (_.t) _.t = clearInterval(_.t);
 			_.t = setInterval(function() {
 				_.to(_.i + 1);
 			}, _.o.delay | 0);
